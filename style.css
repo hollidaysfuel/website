@@ -1,11 +1,11 @@
 :root {
-  --color-red: #f1381a;
-  --color-red-dark: #c62b12;
-  --color-ink: #121212;
-  --color-ink-soft: #222222;
-  --color-cream: #fff6e2;
-  --color-cream-soft: #fbead0;
-  --color-background: #fdfaf4;
+  --color-red: #f32501;
+  --color-red-dark: #da2402;
+  --color-ink: #181807;
+  --color-ink-soft: #252312;
+  --color-cream: #fcf9e7;
+  --color-cream-soft: #fbf8e8;
+  --color-background: #fdf3e6;
   --color-border-subtle: rgba(0, 0, 0, 0.08);
   --color-border-strong: rgba(0, 0, 0, 0.16);
   --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.2);
@@ -154,8 +154,13 @@ li {
 /* Hero */
 
 .hero {
-  background: linear-gradient(150deg, var(--color-red) 0%, #ff4b22 30%, #ff5b28 50%, #111111 100%);
-  color: #fff6e0;
+  background: linear-gradient(
+    150deg,
+    var(--color-red) 0%,
+    var(--color-red-dark) 48%,
+    var(--color-ink) 100%
+  );
+  color: var(--color-cream);
   padding: 5.5rem 0 4.5rem;
 }
 
@@ -176,6 +181,10 @@ li {
   margin: 0;
   max-width: 32rem;
   font-size: 1rem;
+}
+
+.hero .eyebrow {
+  color: var(--color-cream);
 }
 
 .hero-actions {
@@ -267,9 +276,9 @@ li {
 }
 
 .btn--primary {
-  background: #fff7e6;
-  border-color: #fff7e6;
-  color: #121212;
+  background: var(--color-cream);
+  border-color: var(--color-cream);
+  color: var(--color-ink);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
 }
 
