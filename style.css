@@ -129,12 +129,14 @@ li {
 .main-nav ul {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  gap: 1rem;
   padding: 0;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   text-transform: uppercase;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.1em;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .main-nav a {
@@ -370,6 +372,21 @@ li {
 .feature p {
   margin: 0;
   font-size: 0.95rem;
+}
+
+/* About */
+
+.about-content {
+  max-width: 720px;
+}
+
+.about-content p {
+  margin: 0 0 1.4rem;
+  font-size: 1.02rem;
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
 }
 
 /* Service area */
