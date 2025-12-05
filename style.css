@@ -153,6 +153,37 @@ li {
   white-space: nowrap;
 }
 
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 30;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff6e2;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
 /* Hero */
 
 .hero {
@@ -728,20 +759,70 @@ li {
   }
 
   .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: nowrap;
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(320px, 85vw);
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.98), rgba(10, 10, 10, 0.95));
+    backdrop-filter: blur(20px);
+    transition: right 0.3s ease;
+    z-index: 25;
+    padding: 5rem 2rem 2rem;
+    overflow-y: auto;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .main-nav:not([aria-hidden="false"]) {
+    right: -100%;
+  }
+
+  .main-nav[aria-hidden="false"] {
+    right: 0;
   }
 
   .main-nav ul {
-    justify-content: flex-start;
-    gap: 0.9rem;
-    font-size: 0.78rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 0.5rem 0;
   }
 
   .header-cta {
-    align-self: stretch;
-    text-align: center;
-    justify-content: center;
+    display: none;
+  }
+
+  .site-header::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 24;
+  }
+
+  .site-header.menu-open::after {
+    opacity: 1;
+    pointer-events: all;
   }
 
   .hero {
